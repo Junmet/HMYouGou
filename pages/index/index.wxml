@@ -13,8 +13,10 @@
 
   <!-- 导航 -->
   <view class="navigation-list">
-    <block>
-      <view class="navigation-item">1</view>
+    <block wx:for="{{navigationimg}}"  wx:for-item="v"  wx:key="name" >
+      <view class="navigation-item">
+      <image src="{{v.image_src}}"></image>
+      </view>
     </block>
   </view>
 </view>

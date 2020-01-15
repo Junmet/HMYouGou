@@ -10,23 +10,40 @@ Page({
     vertical: false,
     autoplay: true,
     interval: 2000,
-    duration: 500
+    duration: 500,
+
+    // 导航数据
+    navigationimg:[]
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 轮播图请求
     wx.request({
       url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata',
       method: 'GET',
-      success: (result) => {
-        // console.log(result)
+      success: (res) => {
+        // console.log(res)
         //获取到的图片集赋值给data的轮播图数组
         this.setData({
-          carousel: result.data.message
+          carousel: res.data.message
         })
       }
     });
+
+    // 导航请求
+    wx:wx.request({
+      url: 'https://api.zbztb.cn/api/public/v1/home/catitems',
+      method: 'GET',
+      success:(res) => {
+        console.log(res)
+        this.setData({
+          navigationimg: res.data.message
+        })
+      },
+
+    })
   },
 
   /**

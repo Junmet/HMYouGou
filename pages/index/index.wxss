@@ -4,7 +4,11 @@
 .navigation-list{
   display: flex;
 }
-.navigation-item{
+.navigation-list .navigation-item{
   padding: 12rpx 30rpx;
   flex: 25%;
+}
+.navigation-list .navigation-item image{
+  width: 100%;
+  height: 140rpx;
 }
