@@ -1,0 +1,10 @@
+.carousel swiper{
+  height: 340rpx
+}
+.navigation-list{
+  display: flex;
+}
+.navigation-item{
+  padding: 12rpx 30rpx;
+  flex: 25%;
+}

@@ -3,13 +3,30 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {},
-
+  data: {
+    // 轮播图数据
+    carousel:[],
+    indicatorDots: true,
+    vertical: false,
+    autoplay: true,
+    interval: 2000,
+    duration: 500
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    wx.request({
+      url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata',
+      method: 'GET',
+      success: (result) => {
+        // console.log(result)
+        //获取到的图片集赋值给data的轮播图数组
+        this.setData({
+          carousel: result.data.message
+        })
+      }
+    });
   },
 
   /**

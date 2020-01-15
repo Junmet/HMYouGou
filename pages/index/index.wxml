@@ -2,3 +2,19 @@
 <SearchInput/>
 
 <!-- 轮播图 -->
+<view class="carousel">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{carousel}}" wx:for-item="v" wx:key="index">
+      <swiper-item>
+        <image mode="widthFix" src="{{v.image_src}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 导航 -->
+  <view class="navigation-list">
+    <block>
+      <view class="navigation-item">1</view>
+    </block>
+  </view>
+</view>
