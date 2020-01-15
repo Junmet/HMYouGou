@@ -23,36 +23,24 @@
   <!-- 商品详情 -->
   <view class="commodity">
     <!-- 商品的每一个分类循环 -->
-    <view class="commodity-each">
+    <view class="commodity-each" wx:for="{{commodity}}" wx:key="name">
       <!-- 商品标题 -->
-      <block>
-        <view class="commodity-tltle">
-          1
-        </view>
-      </block>
+      <view class="commodity-tltle">
+        <image mode="widthFix" src="{{item.floor_title.image_src}}"></image>
+      </view>
       <!-- 商品图片 -->
       <view class="commodity-contents">
         <view class="commodity-content-one">
-          <image></image>
+          <image src="{{item.product_list[0].image_src}}"></image>
         </view>
         <view class="commodity-content-twos">
-          <view class="commodity-content-two">
-            1
-          </view>
-          <view class="commodity-content-two">
-            2
-          </view>
-          <view class="commodity-content-two">
-            3
-          </view>
-          <view class="commodity-content-two">
-            4
-          </view>
+          <block wx:for="{{item.product_list}}" wx:for-item="v" wx:for-index="i" wx:key="name">
+            <view class="commodity-content-two" wx:if="{{i !== 0}}">
+              <image src="{{v.image_src}}"></image>
+            </view>
+          </block>
         </view>
-
       </view>
-
-
     </view>
   </view>
 </view>

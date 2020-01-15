@@ -1,7 +1,9 @@
-.carousel swiper {
-  height: 340rpx;
+.carousel swiper{
+  width: 750rpx;
 }
-
+.carousel swiper image{
+  width: 100%;
+}
 .navigation-list {
   display: flex;
 }
@@ -22,28 +24,42 @@ commodity {
 
 .commodity .commodity-tltle {
   width: 100%;
-  height: 33rpx;
+  height: 59rpx;
   padding: 5rpx 0;
 }
 
-.commodity .commodity-contents{
+.commodity .commodity-contents {
   display: flex;
   padding: 0 15rpx;
 }
-.commodity-content-one{
-  width: 30.9%;
-  height: 28.9%;
+
+.commodity-content-one {
+  width: 232rpx;
+  height: 386rpx;
   background-color: yellow;
 }
-.commodity-content-twos{
+
+.commodity-content-one image {
+  display: block;
+  width: 232rpx;
+  height: 386rpx;
+}
+
+.commodity-content-twos {
   width: 67%;
   display: flex;
   flex-wrap: wrap;
-   margin-left: 2%;
+  margin-left: 2%;
+  margin-bottom: 10rpx;
 }
-.commodity-content-two{
-  /* width: 67%; */
-  /* background-color: red; */
-  /* margin-left: 2%; */
+
+.commodity-content-two {
   flex: 50% 0 0;
+}
+
+.commodity-content-two image {
+  width: 232rpx;
+  height: 188rpx;
+  /* margin-bottom: 4rpx; */
+
 }
