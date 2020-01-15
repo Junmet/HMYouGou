@@ -1,14 +1,49 @@
-.carousel swiper{
-  height: 340rpx
+.carousel swiper {
+  height: 340rpx;
 }
-.navigation-list{
+
+.navigation-list {
   display: flex;
 }
-.navigation-list .navigation-item{
+
+.navigation-list .navigation-item {
   padding: 12rpx 30rpx;
   flex: 25%;
 }
-.navigation-list .navigation-item image{
+
+.navigation-list .navigation-item image {
   width: 100%;
   height: 140rpx;
+}
+
+commodity {
+  margin-top: 34rpx;
+}
+
+.commodity .commodity-tltle {
+  width: 100%;
+  height: 33rpx;
+  padding: 5rpx 0;
+}
+
+.commodity .commodity-contents{
+  display: flex;
+  padding: 0 15rpx;
+}
+.commodity-content-one{
+  width: 30.9%;
+  height: 28.9%;
+  background-color: yellow;
+}
+.commodity-content-twos{
+  width: 67%;
+  display: flex;
+  flex-wrap: wrap;
+   margin-left: 2%;
+}
+.commodity-content-two{
+  /* width: 67%; */
+  /* background-color: red; */
+  /* margin-left: 2%; */
+  flex: 50% 0 0;
 }
