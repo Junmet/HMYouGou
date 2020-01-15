@@ -1,0 +1,4 @@
+<!-- 搜索 -->
+<view class="nav">
+<view class="search">搜索</view>
+</view>
