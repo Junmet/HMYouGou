@@ -1,1 +1,54 @@
-/* pages/category/index.wxss */
+page {
+  height: 100%;
+}
+.cates {
+  height: 100%;
+}
+.cates .cates_container {
+  height: calc(100vh - 100rpx);
+  display: flex;
+}
+.cates .cates_container .left_menu {
+  flex: 2;
+  background-color: #F3F3F3;
+}
+.cates .cates_container .left_menu .menu_item {
+  height: 74rpx;
+  color: #585858;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cates .cates_container .left_menu .active {
+  color: var(--themeColor);
+  border-left: 5rpx solid currentColor;
+}
+.cates .cates_container .right_content {
+  flex: 5;
+}
+.cates .cates_container .right_content .goods_group .goods_title {
+  height: 74rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+}
+.cates .cates_container .right_content .goods_group .goods_title .delimiter {
+  padding: 0 10rpx;
+  color: #575757;
+}
+.cates .cates_container .right_content .goods_group .goods_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cates .cates_container .right_content .goods_group .goods_list navigator {
+  width: 33.33%;
+  text-align: center;
+}
+.cates .cates_container .right_content .goods_group .goods_list navigator image {
+  width: 50%;
+}
+.cates .cates_container .right_content .goods_group .goods_list navigator .goods_name {
+  font-size: 22rpx;
+}

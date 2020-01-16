@@ -30,7 +30,7 @@
         "selectedIconPath": "icons/home-o.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/category/index",
         "text": "分类",
         "iconPath": "icons/category.png",
         "selectedIconPath": "icons/category-o.png"

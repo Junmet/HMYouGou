@@ -5,14 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    // 商品分类总数据
+    commodityClassify: [],
+    // 左侧数据
+    leftMenuList: [],
+    // 右侧数据
+    rightMenuList:[],
+    // 左侧被点击是的变量 经索引值判断
+    currentIndex:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 获取商品分类数据
+    wx.request({
+      url: 'https://api.zbztb.cn/api/public/v1/categories',
+      method: 'GET',
+      success: (res) => {
+        // console.log(res)
+        this.setData({
+          commodityClassify: res.data.message,
+          // 用数组map的方法构造左侧菜单的数据
+          leftMenuList: res.data.message.map(v=>{
+            return v.cat_name
+          }),
+          // 构造右侧商品数据
+          rightMenuList:res.data.message[0].children
+        })
+      },
+    })
   },
 
   /**

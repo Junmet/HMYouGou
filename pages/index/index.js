@@ -36,7 +36,7 @@ Page({
     });
 
     // 导航请求
-    wx: wx.request({
+    wx.request({
       url: 'https://api.zbztb.cn/api/public/v1/home/catitems',
       method: 'GET',
       success: (res) => {
@@ -48,7 +48,7 @@ Page({
     })
 
     // 商品详情
-    wx:wx.request({
+    wx.request({
       url: 'https://api.zbztb.cn/api/public/v1/home/floordata',
       method: 'GET',
       success:(res) => {

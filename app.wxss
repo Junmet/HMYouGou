@@ -9,3 +9,6 @@ page, view, text, image, navigation {
 page {
   --themeColor: #ea4350;
 }
+image{
+  width: 100%;
+}
