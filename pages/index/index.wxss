@@ -20,12 +20,18 @@
 
 commodity {
   margin-top: 34rpx;
+  box-sizing: border-box;
 }
 
 .commodity .commodity-tltle {
-  width: 100%;
+  width: 750rpx;
   height: 59rpx;
-  padding: 5rpx 0;
+  padding: 0 2rpx;
+  margin-bottom: 10rpx;
+}
+
+.commodity .commodity-tltle image{
+  width: 100%;
 }
 
 .commodity .commodity-contents {
@@ -36,20 +42,18 @@ commodity {
 .commodity-content-one {
   width: 232rpx;
   height: 386rpx;
-  background-color: yellow;
 }
 
 .commodity-content-one image {
-  display: block;
-  width: 232rpx;
   height: 386rpx;
+  width: 100%;
 }
 
 .commodity-content-twos {
   width: 67%;
   display: flex;
   flex-wrap: wrap;
-  margin-left: 2%;
+  margin-left: 1%;
   margin-bottom: 10rpx;
 }
 
@@ -60,6 +64,4 @@ commodity {
 .commodity-content-two image {
   width: 232rpx;
   height: 188rpx;
-  /* margin-bottom: 4rpx; */
-
 }

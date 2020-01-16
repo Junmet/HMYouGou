@@ -52,7 +52,7 @@ Page({
       url: 'https://api.zbztb.cn/api/public/v1/home/floordata',
       method: 'GET',
       success:(res) => {
-        console.log(res)
+        // console.log(res)
         this.setData({
           commodity: res.data.message
         })
