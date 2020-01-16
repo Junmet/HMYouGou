@@ -6,7 +6,9 @@
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{carousel}}" wx:for-item="v" wx:key="index">
       <swiper-item>
-        <image mode="widthFix" src="{{v.image_src}}"></image>
+        <navigator url="{{v.navigator_url}}" open-type="{{v.open_type}}">
+          <image mode="widthFix" src="{{v.image_src}}"></image>
+        </navigator>
       </swiper-item>
     </block>
   </swiper>
@@ -15,7 +17,9 @@
   <view class="navigation-list">
     <block wx:for="{{navigationimg}}" wx:for-item="v" wx:key="name">
       <view class="navigation-item">
-        <image src="{{v.image_src}}"></image>
+        <navigator url="{{v.navigator_url}}" open-type="{{v.open_type}}">
+          <image src="{{v.image_src}}"></image>
+        </navigator>
       </view>
     </block>
   </view>
