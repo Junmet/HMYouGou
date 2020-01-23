@@ -45,10 +45,12 @@ page {
 .cates .cates_container .right_content .goods_group .goods_list navigator {
   width: 33.33%;
   text-align: center;
+  margin: 40rpx 0;
 }
 .cates .cates_container .right_content .goods_group .goods_list navigator image {
   width: 50%;
 }
 .cates .cates_container .right_content .goods_group .goods_list navigator .goods_name {
   font-size: 22rpx;
+  font-weight: 700;
 }

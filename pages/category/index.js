@@ -12,20 +12,20 @@ Page({
     // 右侧数据
     rightMenuList:[],
     // 左侧被点击是的变量 经索引值判断
-    currentIndex:0
+    currentIndex:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
     // 获取商品分类数据
     wx.request({
       url: 'https://api.zbztb.cn/api/public/v1/categories',
       method: 'GET',
-      success: (res) => {
-        // console.log(res)
-        this.setData({
+      success: function (res){
+        that.setData({
           commodityClassify: res.data.message,
           // 用数组map的方法构造左侧菜单的数据
           leftMenuList: res.data.message.map(v=>{
@@ -35,6 +35,16 @@ Page({
           rightMenuList:res.data.message[0].children
         })
       },
+    })
+  },
+  // 点击事件
+  handleItemTap(e){
+    const {index}  = e.currentTarget.dataset
+    // 点击对应的分类渲染对应的数据
+    let rightData = e.currentTarget.dataset.indexid[index].children
+    this.setData({  
+      currentIndex:index,
+      rightMenuList:rightData
     })
   },
 
