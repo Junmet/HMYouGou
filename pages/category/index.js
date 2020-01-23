@@ -19,12 +19,41 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 缓存技术
+    // 用本地存储的方法  去判断有没有旧的数据，没有就发送请求，有就不用发送，使用本地的
+    const localityData = wx.getStorageSync("commodity");
+    // 不存在本地数据的时候
+    if(!localityData){
+      this.getData()
+    }else{
+      // 已经有数据的时候  定义过期时间
+      if(Date.now()-localityData.time>1000*10){
+        // 超过这个时间的时候就需要重新发送请求
+        this.getData()
+      }else{
+        // console.log("我牛逼");
+        this.commodityClassify = localityData.data
+        this.setData({
+          leftMenuList: this.commodityClassify.map(v=>{
+            return v.cat_name
+          }),
+          rightMenuList:this.commodityClassify[0].children
+        })
+      }
+    }
+  },
+
+  // 发送请求获取分类数据
+  getData(){
     let that = this
     // 获取商品分类数据
     wx.request({
       url: 'https://api.zbztb.cn/api/public/v1/categories',
       method: 'GET',
       success: function (res){
+        // 把返回的数据本地存储
+        wx.setStorageSync("commodity", {time:Date.now(),data:res.data.message}),
+
         that.setData({
           commodityClassify: res.data.message,
           // 用数组map的方法构造左侧菜单的数据
@@ -37,6 +66,7 @@ Page({
       },
     })
   },
+
   // 点击事件
   handleItemTap(e){
     const {index}  = e.currentTarget.dataset
@@ -51,49 +81,35 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
-  },
+  onHide: function () {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
-  },
+  onUnload: function () {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
-  },
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
-  },
+  onReachBottom: function () {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  onShareAppMessage: function () {}
 })
