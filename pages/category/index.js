@@ -13,6 +13,8 @@ Page({
     rightMenuList:[],
     // 左侧被点击是的变量 经索引值判断
     currentIndex:0,
+    // 切换左侧菜单的时候右侧菜单保持置顶显示
+    scrollTop:0
   },
 
   /**
@@ -74,7 +76,8 @@ Page({
     let rightData = e.currentTarget.dataset.indexid[index].children
     this.setData({  
       currentIndex:index,
-      rightMenuList:rightData
+      rightMenuList:rightData,
+      scrollTop:0
     })
   },
 
