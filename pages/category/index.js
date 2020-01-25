@@ -1,3 +1,4 @@
+import regeneratorRuntime from '../../lib/runtime/runtime';
 // pages/category/index.js
 Page({
 
