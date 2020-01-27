@@ -1,2 +1,2 @@
-<!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<!-- 搜索组件 -->
+<SearchInput/>
