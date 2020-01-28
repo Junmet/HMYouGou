@@ -1,2 +1,10 @@
 <!-- 搜索组件 -->
 <SearchInput/>
+
+<!-- 商品列表组件 -->
+<!-- 监听自定义组件传来的事件 -->
+<Tabs tabs="{{tabs}}" bindmyevent="onMyevent" >
+<block wx:if="{{tabs[0].isActive}}">0</block>
+<block wx:elif="{{tabs[1].isActive}}">1</block>
+<block wx:else="{{tabs[2].isActive}}">2</block>
+</Tabs>
