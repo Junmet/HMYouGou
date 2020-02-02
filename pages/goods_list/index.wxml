@@ -5,56 +5,17 @@
 <Tabs tabs="{{tabs}}" bindmyevent="onMyevent">
     <block wx:if="{{tabs[0].isActive}}">
         <view class="first_tab">
-            <navigator class="goods_item">
+            <navigator class="goods_item" wx:for="{{goodsList}}" wx:key="goods_id">
                 <!-- 左侧图片容器 -->
                 <view class="goods_img_warp">
-                    <image src="http://image1.suning.cn/uimg/b2c/newcatentries/0070134290-000000000149003877_1_200x200.jpg" mode="widthFix" />
+                    <image src="{{item.goods_small_logo?item.goods_small_logo:'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" mode="widthFix" />
                 </view>
                 <!-- 右侧商品文字描述与价格 -->
                 <view class="goods_text_warp">
                     <!-- 商品详情名称 -->
-                    <view class="goods_name">创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</view>
+                    <view class="goods_name">{{item.goods_name}}</view>
                     <!-- 商品价格 -->
-                    <view class="goods_price">￥3999</view>
-                </view>
-            </navigator>
-            <navigator class="goods_item">
-                <!-- 左侧图片容器 -->
-                <view class="goods_img_warp">
-                    <image class="" src="http://image1.suning.cn/uimg/b2c/newcatentries/0070134290-000000000149003877_1_800x800.jpg" mode="widthFix" />
-                </view>
-                <!-- 右侧商品文字描述与价格 -->
-                <view class="goods_text_warp">
-                    <!-- 商品详情名称 -->
-                    <view class="goods_name">创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</view>
-                    <!-- 商品价格 -->
-                    <view class="goods_price">￥3999</view>
-                </view>
-            </navigator>
-              <navigator class="goods_item">
-                <!-- 左侧图片容器 -->
-                <view class="goods_img_warp">
-                    <image class="" src="http://image1.suning.cn/uimg/b2c/newcatentries/0070134290-000000000149003877_1_800x800.jpg" mode="widthFix" />
-                </view>
-                <!-- 右侧商品文字描述与价格 -->
-                <view class="goods_text_warp">
-                    <!-- 商品详情名称 -->
-                    <view class="goods_name">创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</view>
-                    <!-- 商品价格 -->
-                    <view class="goods_price">￥3999</view>
-                </view>
-            </navigator>
-              <navigator class="goods_item">
-                <!-- 左侧图片容器 -->
-                <view class="goods_img_warp">
-                    <image class="" src="http://image1.suning.cn/uimg/b2c/newcatentries/0070134290-000000000149003877_1_800x800.jpg" mode="widthFix" />
-                </view>
-                <!-- 右侧商品文字描述与价格 -->
-                <view class="goods_text_warp">
-                    <!-- 商品详情名称 -->
-                    <view class="goods_name">创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</view>
-                    <!-- 商品价格 -->
-                    <view class="goods_price">￥3999</view>
+                    <view class="goods_price">￥{{item.goods_price}}</view>
                 </view>
             </navigator>
         </view>
