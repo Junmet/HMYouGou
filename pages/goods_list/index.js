@@ -61,7 +61,7 @@ Page({
       }
     })
     // 当请求成功后 关闭下拉刷新的窗口
-    // wx.stopPullDownRefresh()
+    wx.stopPullDownRefresh()
   },
   onMyevent(e) {
     // console.log(e);
