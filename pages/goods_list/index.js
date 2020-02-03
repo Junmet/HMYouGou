@@ -55,10 +55,13 @@ Page({
         // 总页数 = 总条数（total） / 一页显示多少条数据的页容量（pagesize）
         this.totalPages = Math.ceil(total/this.QueryParams.pagesize)
         this.setData({
+          // 拼接数组
           goodsList: [...this.data.goodsList,...message.goods]
         })
       }
     })
+    // 当请求成功后 关闭下拉刷新的窗口
+    // wx.stopPullDownRefresh()
   },
   onMyevent(e) {
     // console.log(e);
@@ -89,5 +92,16 @@ Page({
       this.QueryParams.pagenum++
       this.getGoodsList()
     }
+  },
+  onPullDownRefresh: function() {
+    // 触发下拉刷新时执行
+    // 重置数组
+    this.setData({
+      goodsList:[]
+    })
+    // 重置页码
+    this.QueryParams.pagenum = 1
+    // 再次发送请求
+    this.getGoodsList()
   }
 })
