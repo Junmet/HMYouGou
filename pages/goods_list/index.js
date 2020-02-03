@@ -22,7 +22,7 @@ Page({
       }
     ],
     // 商品列表数据
-    goodsList:[]
+    goodsList: []
   },
   // 请求参数
   QueryParams: {
@@ -31,6 +31,8 @@ Page({
     pagenum: 1, //页码
     pagesize: 10 //页容量
   },
+  // 总页数
+  totalPages: 1,
 
   /**
    * 生命周期函数--监听页面加载
@@ -40,21 +42,23 @@ Page({
     this.QueryParams.cid = options.cid
     this.getGoodsList()
   },
-
   // 发送请求获取商品列表数据
   getGoodsList() {
     wx.request({
       url: 'https://api.zbztb.cn/api/public/v1/goods/search',
       method: 'GET',
       data: this.QueryParams,
-      success:(res) => {
+      success: (res) => {
         const {message} = res.data
+        // 总条数
+        const total = res.data.message.total
+        // 总页数 = 总条数（total） / 一页显示多少条数据的页容量（pagesize）
+        this.totalPages = Math.ceil(total/this.QueryParams.pagesize)
         this.setData({
-          goodsList:message.goods
+          goodsList: [...this.data.goodsList,...message.goods]
         })
       }
     })
-
   },
   onMyevent(e) {
     // console.log(e);
@@ -77,32 +81,13 @@ Page({
       tabs
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  // 页面上拉触底事件
+  onReachBottom: function () { 
+    if(this.QueryParams.pagenum>=this.totalPages){
+      wx.showToast({title: '没有数据了'})
+    }else{
+      this.QueryParams.pagenum++
+      this.getGoodsList()
+    }
   }
 })
