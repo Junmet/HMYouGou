@@ -1,9 +1,11 @@
-import {
-    BASE_URL
-} from "./url.js"
+import {BASE_URL} from "./url.js"
+
+// 同时发送异步请求的次数 主要类似针对与主页面的3个异步请求数据
+let ajaxNumber=0
+
 export const request = (params) => {
-    console.log(params);
-    
+    // console.log(params);
+    ajaxNumber++
     // 添加请求后的遮障
     wx.showLoading({
         title: "正在加载....",
@@ -20,7 +22,10 @@ export const request = (params) => {
                 reject(err)
             },
             complete: () => {
-                wx.hideLoading();
+                ajaxNumber--
+                if(ajaxNumber===0){
+                    wx.hideLoading();
+                }
             }
         });
     })
