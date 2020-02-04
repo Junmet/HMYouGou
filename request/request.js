@@ -6,7 +6,7 @@ let ajaxNumber=0
 export const request = (params) => {
     // console.log(params);
     ajaxNumber++
-    // 添加请求后的遮障
+    // 添加请求后的遮障 提示窗口
     wx.showLoading({
         title: "正在加载....",
         mask: true
@@ -24,6 +24,7 @@ export const request = (params) => {
             complete: () => {
                 ajaxNumber--
                 if(ajaxNumber===0){
+                    // 关闭提示正在加载中的窗口
                     wx.hideLoading();
                 }
             }
