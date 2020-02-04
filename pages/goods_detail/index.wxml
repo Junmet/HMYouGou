@@ -1,1 +1,8 @@
-
+<!-- 轮播图 -->
+<view class="carousel">
+    <swiper indicator-dots autoplay circular>
+        <swiper-item wx:for="{{commodityDetails.pics}}" wx:key="pics_id">
+            <image mode="widthFix" src="{{item.pics_mid}}"></image>
+        </swiper-item>
+    </swiper>
+</view>

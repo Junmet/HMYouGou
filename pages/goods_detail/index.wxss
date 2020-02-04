@@ -1,1 +1,7 @@
-/* pages/goods_detail/index.wxss */
+.carousel swiper {
+  height: 65vw;
+  text-align: center;
+}
+.carousel swiper image {
+  width: 60%;
+}
