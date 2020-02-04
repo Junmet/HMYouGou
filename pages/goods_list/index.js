@@ -1,6 +1,5 @@
-import regeneratorRuntime from '../../lib/runtime/runtime';
+import {request} from "../../request/request.js"
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -43,26 +42,21 @@ Page({
     this.getGoodsList()
   },
   // 发送请求获取商品列表数据
-  getGoodsList() {
-    wx.request({
-      url: 'https://api.zbztb.cn/api/public/v1/goods/search',
-      method: 'GET',
-      data: this.QueryParams,
-      success: (res) => {
-        const {message} = res.data
-        // 总条数
-        const total = res.data.message.total
-        // 总页数 = 总条数（total） / 一页显示多少条数据的页容量（pagesize）
-        this.totalPages = Math.ceil(total/this.QueryParams.pagesize)
-        this.setData({
-          // 拼接数组
-          goodsList: [...this.data.goodsList,...message.goods]
-        })
-      }
+  async getGoodsList(){
+    const res = await request({ url: '/goods/search',data:this.QueryParams})
+    const {message} = res.data
+    // 总条数
+    const total = res.data.message.total
+    // 总页数 = 总条数（total） / 一页显示多少条数据的页容量（pagesize）
+    this.totalPages = Math.ceil(total/this.QueryParams.pagesize)
+    this.setData({
+    // 拼接数组
+      goodsList:[...this.data.goodsList,...message.goods]
     })
     // 当请求成功后 关闭下拉刷新的窗口
     wx.stopPullDownRefresh()
   },
+
   onMyevent(e) {
     // console.log(e);
     // 获取点击索引值  是从子组件传递过来的值

@@ -1,4 +1,4 @@
-import regeneratorRuntime from '../../lib/runtime/runtime';
+import {request} from "../../request/request.js"
 // pages/category/index.js
 Page({
 
@@ -34,7 +34,6 @@ Page({
         // 超过这个时间的时候就需要重新发送请求
         this.getData()
       }else{
-        // console.log("我牛逼");
         this.commodityClassify = localityData.data
         this.setData({
           leftMenuList: this.commodityClassify.map(v=>{
@@ -47,17 +46,11 @@ Page({
   },
 
   // 发送请求获取分类数据
-  getData(){
-    let that = this
-    // 获取商品分类数据
-    wx.request({
-      url: 'https://api.zbztb.cn/api/public/v1/categories',
-      method: 'GET',
-      success: function (res){
-        // 把返回的数据本地存储
-        wx.setStorageSync("commodity", {time:Date.now(),data:res.data.message}),
-
-        that.setData({
+  async getData(){
+    const res = await request({url: '/categories'})
+    // 把返回的数据本地存储
+    wx.setStorageSync("commodity", {time:Date.now(),data:res.data.message}),
+    this.setData({
           commodityClassify: res.data.message,
           // 用数组map的方法构造左侧菜单的数据
           leftMenuList: res.data.message.map(v=>{
@@ -66,8 +59,6 @@ Page({
           // 构造右侧商品数据
           rightMenuList:res.data.message[0].children
         })
-      },
-    })
   },
 
   // 点击事件
@@ -80,40 +71,5 @@ Page({
       rightMenuList:rightData,
       scrollTop:0
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {}
+  }
 })
