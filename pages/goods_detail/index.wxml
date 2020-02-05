@@ -1,8 +1,26 @@
-<!-- 轮播图 -->
+<!--商品详情 轮播图 -->
 <view class="carousel">
     <swiper indicator-dots autoplay circular>
         <swiper-item wx:for="{{commodityDetails.pics}}" wx:key="pics_id">
-            <image mode="widthFix" src="{{item.pics_mid}}"></image>
+            <image bindtap="previewImg" data-src="{{item}}" mode="widthFix" src="{{item.pics_mid}}"></image>
         </swiper-item>
     </swiper>
+</view>
+
+<!-- 商品详情 信息 -->
+<view class="commodity_price">￥ {{commodityDetails.goods_price}}</view>
+<view class="commodity_text">
+    <view class="commodity_left">{{commodityDetails.goods_name}}</view>
+    <view class="commodity_right_row">
+        <text class="iconfont icon-shoucang"></text>
+        <view class="collect_text">收藏</view>
+    </view>
+</view>
+
+<!-- 商品详情  图文详情 -->
+<view class="image_text_row">
+    <view class="image_title">图文详情</view>
+    <view class="image_text_content">
+        <rich-text nodes="{{commodityDetails.goods_introduce}}"></rich-text>
+    </view>
 </view>

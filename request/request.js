@@ -11,10 +11,12 @@ export const request = (params) => {
         title: "正在加载....",
         mask: true
     })
-    return new Promise(function (resolve, reject) {
+    return new Promise((resolve, reject) => {
         wx.request({
             url: BASE_URL + params.url,
             data: params.data,
+            // 解构写法
+            // ...params,
             success: (res) => {
                 resolve(res)
             },
