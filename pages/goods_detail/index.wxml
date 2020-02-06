@@ -1,4 +1,4 @@
-<!--商品详情 轮播图 -->
+<!-- 商品详情 轮播图 -->
 <view class="carousel">
     <swiper indicator-dots autoplay circular>
         <swiper-item wx:for="{{commodityDetails.pics}}" wx:key="pics_id">
@@ -22,5 +22,29 @@
     <view class="image_title">图文详情</view>
     <view class="image_text_content">
         <rich-text nodes="{{commodityDetails.goods_introduce}}"></rich-text>
+    </view>
+</view>
+
+<!-- 底部工具栏 -->
+<view class="btm_tool">
+    <view class="tool_item">
+        <view class="iconfont icon-kefu"></view>
+        <view>客服</view>
+        <button open-type="contact"></button>
+    </view>
+    <view class="tool_item">
+        <view class="iconfont icon-yixianshi-"></view>
+        <view>分享</view>
+        <button open-type="share"></button>
+    </view>
+    <navigator url="/pages/cart/index" open-type="switchTab" class="tool_item">
+        <view class="iconfont icon-gouwuche"></view>
+        <view>购物车</view>
+    </navigator>
+    <view class="tool_item btn_cart" bindtap="handleCartAdd">
+        <view>加入购物车</view>
+    </view>
+    <view class="tool_item btn_buy">
+        <view>立即购买</view>
     </view>
 </view>
