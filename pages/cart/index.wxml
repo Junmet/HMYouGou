@@ -1,6 +1,19 @@
 <!-- 收货地址 -->
 <view class="site_vessel">
-    <view class="site_btn">
+    <!-- 当本地有地址数据的时候就显示地址信息  没有就显示按钮 -->
+    <!-- 对象 空对象 的bool类型都是为true 所以要拿对象里面的值来判断 -->
+    <view class="site_btn" wx:if="{{!siteMessages.userName}}">
         <button bindtap="getSite" type="primary" plain>获取收货地址</button>
+    </view>
+    <view wx:else>
+        <view class=".site_btn2">
+            <view class="site_top">
+                <view class="left">{{siteMessages.userName}}</view>
+                <view class="right">{{siteMessages.telNumber}}</view>
+            </view>
+            <view class="site_bot">
+                {{siteMessages.all}}
+            </view>
+        </view>
     </view>
 </view>
