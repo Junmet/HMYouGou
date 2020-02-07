@@ -1,6 +1,5 @@
-// pages/cart/index.js
+import {getSetting,openSetting,chooseAddress} from "../../utils/asyncWx.js"
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -14,32 +13,16 @@ Page({
   onLoad: function (options) {
 
   },
-  // 点击获取收货地址
-  getSite() {
-    // 获取用户的当前设置。返回值中只会出现小程序已经向用户请求过的权限。看scope.address 是true、false
-    wx.getSetting({
-      success: (result) => {
-        const scopeAddress = result.authSetting["scope.address"]
-        if (scopeAddress === true || scopeAddress === undefined) {
-          wx.chooseAddress({
-            success: (res) => {
-              console.log(res);
-              
-            },
-          });
-        } else {
-          // 3. 用户 拒绝过授予权限 先诱导用户打开授权页面
-          wx.openSetting({
-            success: (result) => {
-              wx.chooseAddress({
-                success: (res2) => {
-                  console.log(res2);
-                }
-              });
-            }
-          });
-        }
-      }
-    });
+  // 点击获取收货地址 try catch 方法可以把报错处理掉
+  async getSite() {
+    try {
+      const res = await getSetting()
+      const scopeAddress = res.authSetting["scope.address"]
+      if (scopeAddress === false) await openSetting()
+      const res2 = await chooseAddress()
+      // 把获取到的地址本地存储
+      wx.setStorageSync("siteMessage", res2);
+    } catch (error) {
+    }
   }
 })
