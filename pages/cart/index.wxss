@@ -1,0 +1,7 @@
+.site_vessel .site_btn {
+  padding: 20rpx;
+  background-color: #FFF;
+}
+.site_vessel .site_btn button {
+  font-weight: 400;
+}

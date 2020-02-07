@@ -8,6 +8,7 @@ page, view, text, image, navigation {
 
 page {
   --themeColor: #ea4350;
+  background-color: #f8f8f8;
 }
 image{
   width: 100%;
