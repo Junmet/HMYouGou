@@ -14,53 +14,32 @@ Page({
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 点击获取收货地址
+  getSite() {
+    // 获取用户的当前设置。返回值中只会出现小程序已经向用户请求过的权限。看scope.address 是true、false
+    wx.getSetting({
+      success: (result) => {
+        const scopeAddress = result.authSetting["scope.address"]
+        if (scopeAddress === true || scopeAddress === undefined) {
+          wx.chooseAddress({
+            success: (res) => {
+              console.log(res);
+              
+            },
+          });
+        } else {
+          // 3. 用户 拒绝过授予权限 先诱导用户打开授权页面
+          wx.openSetting({
+            success: (result) => {
+              wx.chooseAddress({
+                success: (res2) => {
+                  console.log(res2);
+                }
+              });
+            }
+          });
+        }
+      }
+    });
   }
 })

@@ -1,6 +1,6 @@
 <!-- 收货地址 -->
 <view class="site_vessel">
     <view class="site_btn">
-        <button type="primary" plain>获取收货地址</button>
+        <button bindtap="getSite" type="primary" plain>获取收货地址</button>
     </view>
 </view>
