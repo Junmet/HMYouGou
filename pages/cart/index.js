@@ -4,7 +4,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    siteMessages:[]
+    siteMessages:{},
+    cart:[] // 购物车数据
+    
   },
 
   /**
@@ -17,8 +19,13 @@ Page({
   onShow: function() {
     // 页面出现在前台时执行
     const siteMessages = wx.getStorageSync("siteMessage");
+
+    // 获取本地存储中的购物车数据
+    const cart = wx.getStorageSync("cart");
+
     this.setData({
-      siteMessages:siteMessages
+      siteMessages:siteMessages,
+      cart:cart
     })
   },
 

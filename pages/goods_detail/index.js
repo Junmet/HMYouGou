@@ -66,6 +66,9 @@ Page({
     if (index === -1) {
       // 3.不存在 是第一次添加商品
       this.allData.num = 1 //购买数量为1
+
+      this.allData.checked = true // 选中商品(购物车页面使用)
+
       cart.push(this.allData)
     } else {
       // 4.已经存在  多次添加商品 num++
