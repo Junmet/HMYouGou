@@ -11,9 +11,57 @@
                 <view class="left">{{siteMessages.userName}}</view>
                 <view class="right">{{siteMessages.telNumber}}</view>
             </view>
-            <view class="site_bot">
-                {{siteMessages.all}}
+            <view class="site_bot">{{siteMessages.all}}</view>
+        </view>
+    </view>
+</view>
+
+<!-- 购物车的主要内容 -->
+<view class="cart_content">
+    <view class="cart_title">优购生活馆</view>
+    <view class="cart_main">
+        <view class="cart_item">
+            <!-- 复选框 -->
+            <view class="cart_chk">
+                <checkbox-group>
+                    <checkbox></checkbox>
+                </checkbox-group>
+            </view>
+            <!-- 商品图片 -->
+            <navigator class="cart_img">
+                <image mode="widthFix" src="http://image5.suning.cn/uimg/b2c/newcatentries/0000000000-000000000193373779_1_400x400.jpg" />
+            </navigator>
+            <!-- 商品信息 -->
+            <view class="cart_message">
+                <view class="message_title"> dsfadsfaga就发的法律框架但是克拉夫里克50英寸 4K超高清智能电视 HDR超薄曲面</view>
+                <view class="message_price">
+                    <view class="price_left">￥19999</view>
+                    <view class="price_right">
+                        <view class="num_subtract">-</view>
+                        <view class="num_quantity">10</view>
+                        <view class="num_append">+</view>
+                    </view>
+                </view>
             </view>
         </view>
     </view>
+</view>
+
+<!-- 底部结算工具栏 -->
+<view class="footer_tool">
+    <!-- 全选 -->
+    <view class="all_chk_wrap">
+        <checkbox-group>
+                <checkbox>全选</checkbox>
+        </checkbox-group>
+    </view>
+    <!-- 合计 -->
+    <view class="all_price_warp">
+        <view class="total_price">
+            合计：<text class="total_price_text">￥19999</text>
+        </view>
+        <view class="include_postage">包含运费</view>
+    </view>
+    <!-- 结算 -->
+    <view class="all_quantity_text">结算(2)</view>
 </view>
