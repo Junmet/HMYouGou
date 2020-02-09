@@ -5,8 +5,8 @@ Page({
    */
   data: {
     siteMessages:{},
-    cart:[] // 购物车数据
-    
+    cart:[],// 购物车数据
+    allchk:false //全选参数
   },
 
   /**
@@ -21,11 +21,15 @@ Page({
     const siteMessages = wx.getStorageSync("siteMessage");
 
     // 获取本地存储中的购物车数据
-    const cart = wx.getStorageSync("cart");
+    const cart = wx.getStorageSync("cart")||[];
+
+    // 全选效果
+    const allchk = cart.length?cart.every((v)=>v.checked):false
 
     this.setData({
       siteMessages:siteMessages,
-      cart:cart
+      cart:cart,
+      allchk:allchk
     })
   },
 
