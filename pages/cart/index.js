@@ -6,7 +6,9 @@ Page({
   data: {
     siteMessages:{},
     cart:[],// 购物车数据
-    allchk:false //全选参数
+    allchk:false, //全选参数
+    totalPrice:0, //选中的总价格
+    totalNum:0 //选中的总数量
   },
 
   /**
@@ -24,12 +26,32 @@ Page({
     const cart = wx.getStorageSync("cart")||[];
 
     // 全选效果
-    const allchk = cart.length?cart.every((v)=>v.checked):false
+    // const allchk = cart.length?cart.every((v)=>v.checked):false
+
+    // 总价格 总数量
+    let allchk = true
+    let totalNum =0
+    let totalPrice =0
+    cart.forEach((v)=>{
+      if(v.checked){
+        // 总价格
+        totalPrice +=v.num * v.goods_price
+        // 总数量
+        totalNum += v.num
+      }else{
+        allchk=false
+      }
+    })
+
+    // 空数组不会执行forEach  所以防止cart 为空数组的时候 进行判断 数组是否为空
+    allchk = cart.length!=0?allchk:false
 
     this.setData({
       siteMessages:siteMessages,
       cart:cart,
-      allchk:allchk
+      allchk:allchk,
+      totalPrice:totalPrice,
+      totalNum:totalNum
     })
   },
 

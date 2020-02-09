@@ -58,10 +58,10 @@
     <!-- 合计 -->
     <view class="all_price_warp">
         <view class="total_price">
-            合计：<text class="total_price_text">￥19999</text>
+            合计：<text class="total_price_text">￥{{totalPrice}}</text>
         </view>
         <view class="include_postage">包含运费</view>
     </view>
     <!-- 结算 -->
-    <view class="all_quantity_text">结算(2)</view>
+    <view class="all_quantity_text">结算({{totalNum}})</view>
 </view>
