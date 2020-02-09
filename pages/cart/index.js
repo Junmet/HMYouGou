@@ -1,4 +1,4 @@
-import {getSetting,openSetting,chooseAddress,showModal} from "../../utils/asyncWx.js"
+import {getSetting,openSetting,chooseAddress,showModal,showToast} from "../../utils/asyncWx.js"
 Page({
   /**
    * 页面的初始数据
@@ -107,5 +107,21 @@ Page({
       cart[index].num += operation
       this.setCart(cart)
     }
+  },
+
+  // 结算功能
+ async settleAccounts(){
+    const {siteMessages,cart} = this.data
+
+    if(!siteMessages.userName){
+      const res =await showToast({title:"您还没选择收货地址!"})
+      return
+    }else if(cart.length==0){
+      const res =await showToast({title:"您还没购买商品!"})
+      return
+    }
+    
+    // 跳转支付页面
+    wx.navigateTo({url: '/pages/pay/index'});
   }
 })

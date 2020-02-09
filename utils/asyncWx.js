@@ -47,7 +47,7 @@ export const chooseAddress = () => {
 }
 
 
-// 提示框
+// 显示模态对话框
 export const showModal = ({content}) => {
     return new Promise((resolve, reject) => {
         wx.showModal({
@@ -57,6 +57,22 @@ export const showModal = ({content}) => {
                 resolve(res)
             },
             fail: (err) => {
+                reject(err)
+            },
+        });
+    })
+}
+
+// 显示消息提示框
+export const showToast = ({title}) => {
+    return new Promise((resolve, reject) => {
+        wx.showToast({
+            title: title,
+            mask: false,
+            success: (res)=>{
+                resolve(res)
+            },
+            fail: (err)=>{
                 reject(err)
             },
         });
