@@ -1,14 +1,14 @@
 // 获取用户的当前设置
 export const getSetting = () => {
-    return new Promise ((resolve,reject)=>{
+    return new Promise((resolve, reject) => {
         wx.getSetting({
-            success: (res)=>{
+            success: (res) => {
                 resolve(res)
             },
-            fail: (err)=>{
+            fail: (err) => {
                 reject(err)
                 console.log("111");
-                
+
             },
         });
     })
@@ -16,15 +16,15 @@ export const getSetting = () => {
 
 // 调起客户端小程序设置界面，返回用户设置的操作结果。
 export const openSetting = () => {
-    return new Promise((resolve,reject)=>{
+    return new Promise((resolve, reject) => {
         wx.openSetting({
-            success: (res)=>{
+            success: (res) => {
                 resolve(res)
             },
-            fail: (err)=>{
+            fail: (err) => {
                 reject(err)
                 console.log("222");
-                
+
             }
         });
     })
@@ -32,16 +32,33 @@ export const openSetting = () => {
 
 // 获取用户收货地址。调起用户编辑收货地址原生界面，并在编辑完成后返回用户选择的地址。
 export const chooseAddress = () => {
-    return new Promise((resolve,reject)=>{
+    return new Promise((resolve, reject) => {
         wx.chooseAddress({
-            success: (res)=>{
+            success: (res) => {
                 resolve(res)
             },
-            fail: (err)=>{
+            fail: (err) => {
                 reject(err)
                 console.log("123");
-                
+
             }
+        });
+    })
+}
+
+
+// 提示框
+export const showModal = ({content}) => {
+    return new Promise((resolve, reject) => {
+        wx.showModal({
+            title: '提示',
+            content: content,
+            success: (res) => {
+                resolve(res)
+            },
+            fail: (err) => {
+                reject(err)
+            },
         });
     })
 }

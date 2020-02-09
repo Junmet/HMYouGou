@@ -37,9 +37,9 @@
                 <view class="message_price">
                     <view class="price_left">￥{{item.goods_price}}</view>
                     <view class="price_right">
-                        <view class="num_subtract">-</view>
+                        <view bindtap="addSubtractQuantity"  data-id="{{item.goods_id}}" data-operation="{{-1}}" class="num_subtract">-</view>
                         <view class="num_quantity">{{item.num}}</view>
-                        <view class="num_append">+</view>
+                        <view bindtap="addSubtractQuantity" data-id="{{item.goods_id}}" data-operation="{{1}}" class="num_append">+</view>
                     </view>
                 </view>
             </view>
