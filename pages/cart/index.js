@@ -25,34 +25,9 @@ Page({
     // 获取本地存储中的购物车数据
     const cart = wx.getStorageSync("cart")||[];
 
-    // 全选效果
-    // const allchk = cart.length?cart.every((v)=>v.checked):false
+    this.setData({siteMessages:siteMessages})
 
-    // 总价格 总数量
-    let allchk = true
-    let totalNum =0
-    let totalPrice =0
-    cart.forEach((v)=>{
-      if(v.checked){
-        // 总价格
-        totalPrice +=v.num * v.goods_price
-        // 总数量
-        totalNum += v.num
-      }else{
-        allchk=false
-      }
-    })
-
-    // 空数组不会执行forEach  所以防止cart 为空数组的时候 进行判断 数组是否为空
-    allchk = cart.length!=0?allchk:false
-
-    this.setData({
-      siteMessages:siteMessages,
-      cart:cart,
-      allchk:allchk,
-      totalPrice:totalPrice,
-      totalNum:totalNum
-    })
+    this.setCart(cart)
   },
 
   // 点击获取收货地址 try catch 方法可以把报错处理掉
@@ -68,5 +43,44 @@ Page({
       wx.setStorageSync("siteMessage", res2);
     } catch (error) {
     }
+  },
+
+  // 取消复选框选项的时候触发
+  cancelOption(e){
+    // 获取被修改的id
+    const goods_id = e.target.dataset.id
+    //解构出data里面的cart 拿取cart数据
+    const {cart} = this.data
+    //找到对应的goods_id的索引值
+    const index = cart.findIndex(v=>v.goods_id===goods_id)
+    //然后找到对应得索引值后把checked取反  从true => false
+    cart[index].checked = !cart[index].checked
+    this.setCart(cart) 
+  },
+
+  // 封装 计算总价格 总数量 还有全选的状态值
+  setCart(cart){
+    let allchk = true
+    let totalNum =0
+    let totalPrice =0
+    cart.forEach((v)=>{
+      if(v.checked){
+           // 总价格
+        totalPrice +=v.num * v.goods_price
+          // 总数量
+        totalNum += v.num
+      }else{
+        allchk=false
+      }
+    })
+    // 空数组不会执行forEach  所以防止cart 为空数组的时候 进行判断 数组是否为空
+    allchk = cart.length!=0?allchk:false
+    this.setData({
+      cart:cart,
+      allchk:allchk,
+      totalPrice:totalPrice,
+      totalNum:totalNum
+    })
+    wx.setStorageSync("cart", cart);
   }
 })
