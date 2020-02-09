@@ -82,5 +82,18 @@ Page({
       totalNum:totalNum
     })
     wx.setStorageSync("cart", cart);
+  },
+
+//   全选 取反 事件
+  allpitchon(){
+    // 把data里面的allchk cart 解构出来
+    let {allchk,cart} = this.data
+    // 取反
+    allchk=!allchk
+    // 遍历cart数组 修改 checked
+    cart.forEach(v=>{
+      v.checked = !v.checked
+    }) 
+    this.setCart(cart)
   }
 })

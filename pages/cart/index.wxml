@@ -51,7 +51,7 @@
 <view class="footer_tool">
     <!-- 全选 -->
     <view class="all_chk_wrap">
-        <checkbox-group>
+        <checkbox-group bindchange="allpitchon">
                 <checkbox checked="{{allchk}}">全选</checkbox>
         </checkbox-group>
     </view>
