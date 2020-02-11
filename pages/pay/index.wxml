@@ -1,2 +1,50 @@
-<!--pages/pay/index.wxml-->
-<text>pages/pay/index.wxml</text>
+<!-- 收货地址 -->
+<view class="site_vessel">
+    <view>
+        <view class=".site_btn2">
+            <view class="site_bot">{{siteMessages.all}}</view>
+            <view class="site_top">
+                <view class="left">{{siteMessages.userName}}</view>
+                <view class="right">{{siteMessages.telNumber}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 购物车的主要内容 -->
+<view class="cart_content">
+    <view class="cart_title">已选商品</view>
+    <view class="cart_main">
+        <view class="cart_item" wx:for="{{cart}}" wx:key="goods_id">
+            <!-- 商品图片 -->
+            <navigator class="cart_img">
+                <image mode="widthFix" src="{{item.goods_small_logo}}" />
+            </navigator>
+            <!-- 商品信息 -->
+            <view class="cart_message">
+                <view class="message_title">{{item.goods_name}}</view>
+                <view class="message_price">
+                    <view class="price_left">￥{{item.goods_price}}</view>
+                    <view class="price_right">
+                        <view class="num_quantity">X{{item.num}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 底部结算工具栏 -->
+<view class="footer_tool">
+    <!-- 合计 -->
+    <view class="all_price_warp">
+        <view class="total_price">
+            合计：
+            <text class="total_price_text">￥{{totalPrice}}</text>
+        </view>
+    </view>
+    <!-- 结算 -->
+    <view class="all_quantity_text">
+        <view class="payment">
+            支付({{totalNum}})
+        </view>
+    </view>
+</view>
