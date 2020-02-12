@@ -36,21 +36,21 @@ Page({
 
   // 轮播图方法
   async slideshow(){
-    const res = await request({url: '/home/swiperdata'})
+    const res = await request({url: '/home/swiperdata',method:"GET"})
     //获取到的图片集赋值给data的轮播图数组
     this.setData({carousel: res.data.message})
   },
 
   // 导航方法
   async navigation(){
-    const res = await request({url: '/home/catitems'})
+    const res = await request({url: '/home/catitems',method:"GET"})
     // console.log(res);
     this.setData({navigationimg: res.data.message})
   },
 
   // 楼层方法
   async towerTier(){
-    const res = await request({url: '/home/floordata'})
+    const res = await request({url: '/home/floordata',method:"GET"})
     // console.log(res);
     this.setData({ commodity: res.data.message})
   }

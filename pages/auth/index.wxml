@@ -1,2 +1,1 @@
-<!--pages/auth/index.wxml-->
-<text>pages/auth/index.wxml</text>
+<button type="primary" open-type="getUserInfo" bindgetuserinfo="GetUserInfo">支付授权</button>

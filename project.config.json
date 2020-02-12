@@ -25,7 +25,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.0",
-	"appid": "wx1d5e3be9d461409e",
+	"appid": "wx45f217ba2cb42557",
 	"projectname": "YouGou",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -89,6 +89,13 @@
 					"id": -1,
 					"name": "支付",
 					"pathName": "pages/pay/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "授权页面",
+					"pathName": "pages/auth/index",
 					"scene": null
 				}
 			]

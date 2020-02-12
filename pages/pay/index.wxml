@@ -43,7 +43,7 @@
     </view>
     <!-- 结算 -->
     <view class="all_quantity_text">
-        <view class="payment">
+        <view class="payment" bindtap="payment">
             支付({{totalNum}})
         </view>
     </view>

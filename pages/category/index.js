@@ -47,7 +47,7 @@ Page({
 
   // 发送请求获取分类数据
   async getData(){
-    const res = await request({url: '/categories'})
+    const res = await request({url: '/categories',method:"GET"})
     // 把返回的数据本地存储
     wx.setStorageSync("commodity", {time:Date.now(),data:res.data.message}),
     this.setData({

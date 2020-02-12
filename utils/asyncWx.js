@@ -78,3 +78,18 @@ export const showToast = ({title}) => {
         });
     })
 }
+
+// 登录后获取code
+export const login = () => {
+    return new Promise((resolve, reject) => {
+        wx.login({
+            timeout:10000,
+            success: (result)=>{
+                resolve(result)
+            },
+            fail: (err)=>{
+                reject(err)
+            },
+        });
+    })
+}

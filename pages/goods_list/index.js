@@ -43,7 +43,7 @@ Page({
   },
   // 发送请求获取商品列表数据
   async getGoodsList(){
-    const res = await request({ url: '/goods/search',data:this.QueryParams})
+    const res = await request({ url: '/goods/search',data:this.QueryParams,method:"GET"})
     const {message} = res.data
     // 总条数
     const total = res.data.message.total

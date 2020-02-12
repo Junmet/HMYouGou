@@ -27,7 +27,8 @@ Page({
       url: '/goods/detail',
       data: {
         goods_id
-      }
+      },
+      method:"GET"
     })
     this.allData = res.data.message
     this.setData({
