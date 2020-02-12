@@ -95,6 +95,11 @@ Page({
         data: {order_number},
         method: "POST"
       })
+      //手动删除缓存中 已经支付的数据
+      let newCart = wx.getStorageSync("cart");
+      newCart = newCart.filter(v=>!v.checked)
+      wx.setStorageSync("cart", newCart);
+      
       // 支付成功提示
       await showToast({title:"支付成功"})
       // 支付成功后跳转订单页
