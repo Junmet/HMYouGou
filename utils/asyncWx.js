@@ -1,3 +1,5 @@
+import { request } from "../request/request";
+
 // 获取用户的当前设置
 export const getSetting = () => {
     return new Promise((resolve, reject) => {
@@ -69,6 +71,7 @@ export const showToast = ({title}) => {
         wx.showToast({
             title: title,
             mask: false,
+            icon:"none",
             success: (res)=>{
                 resolve(res)
             },
@@ -84,6 +87,21 @@ export const login = () => {
     return new Promise((resolve, reject) => {
         wx.login({
             timeout:10000,
+            success: (result)=>{
+                resolve(result)
+            },
+            fail: (err)=>{
+                reject(err)
+            },
+        });
+    })
+}
+
+// 发起微信支付
+export const requestPayment = (datas) => {
+    return new Promise((resolve, reject) => {
+        wx.requestPayment({
+            ...datas,
             success: (result)=>{
                 resolve(result)
             },

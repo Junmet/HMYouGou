@@ -15,6 +15,7 @@ export const request = (params) => {
         wx.request({
             url: BASE_URL + params.url,
             data: params.data,
+            header:params.header,
             method:params.method,
             // 解构写法
             // ...params,
