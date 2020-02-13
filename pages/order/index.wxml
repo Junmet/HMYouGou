@@ -1,2 +1,6 @@
-<!--pages/order/index.wxml-->
-<text>pages/order/index.wxml</text>
+<!-- 订单列表 -->
+<Tabs tabs="{{tabs}}" bindmyevent="onMyevent">
+    <block wx:if="{{tabs[0].isActive}}">0</block>
+    <block wx:elif="{{tabs[1].isActive}}">1</block>
+    <block wx:else="{{tabs[2].isActive}}">2</block>
+</Tabs>

@@ -15,11 +15,11 @@
 <!-- 历史内容 -->
 <view class="user_mian">
     <view class="user_classify">
-        <navigator hover-class="navigator-hover">
+        <navigator hover-class="navigator-hover"  url="/pages/order/index?type=2">
             <view class="iconfont icon-fukuantongzhi"></view>
             <text class="user_payment_text">待付款</text>
         </navigator>
-        <navigator hover-class="navigator-hover">
+        <navigator hover-class="navigator-hover"  url="/pages/order/index?type=3">
             <view class="iconfont icon-receipt-address"></view>
             <text class="user_payment_text">待收货</text>
         </navigator >
@@ -27,7 +27,7 @@
             <view class="iconfont icon-tuihuotuikuan_dianpu"></view>
             <text class="user_payment_text">退货/退款</text>
         </navigator>
-        <navigator hover-class="navigator-hover" url="/pages/order/index">
+        <navigator hover-class="navigator-hover" url="/pages/order/index?type=1">
             <view class="iconfont icon-ding_dan"></view>
             <text class="user_payment_text">全部订单</text>
         </navigator>
