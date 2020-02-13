@@ -4,7 +4,12 @@ import {BASE_URL} from "./url.js"
 let ajaxNumber=0
 
 export const request = (params) => {
-    // console.log(params);
+    // // 当请求接口是/my/的 自动添加token值
+    // let header = {...params.header}
+    // if(params.url.includes("/my/")){
+    //     header["Authorization"] = wx.getStorageSync("token");
+    // }
+
     ajaxNumber++
     // 添加请求后的遮障 提示窗口
     wx.showLoading({
@@ -20,7 +25,7 @@ export const request = (params) => {
             // 解构写法
             // ...params,
             success: (res) => {
-                resolve(res)
+                resolve(res)  
             },
             fail: (err) => {
                 reject(err)
