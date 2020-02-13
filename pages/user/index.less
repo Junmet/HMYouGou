@@ -1,0 +1,47 @@
+.user_wrap {
+    width: 100vw;
+    height:330rpx;
+    overflow: hidden;
+    background-color: var(--themeColor);
+    position: relative;
+    .user_info_img {
+        position: relative;
+        .user_bg {
+            height:350rpx;
+            // 高斯模糊
+            filter: blur(8rpx);
+        }
+
+        .user_info {
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            .user_icon {
+                width: 172rpx;
+                height: 172rpx;
+                border-radius:50%
+            }
+
+            .user_name {
+                color: #FFF;
+            }
+        }
+    }
+    .user_btn{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        navigator{
+            width: 150rpx;
+            height: 80rpx;
+            border: 2px solid greenyellow;
+            color: greenyellow;
+            border-radius: 10rpx;
+            text-align: center;
+            line-height: 80rpx;
+        }
+    }
+}
