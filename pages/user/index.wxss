@@ -42,3 +42,43 @@
   text-align: center;
   line-height: 80rpx;
 }
+.user_mian {
+  margin-top: 20rpx;
+}
+.user_mian .user_classify {
+  margin: 0rpx 24rpx;
+  height: 144rpx;
+  background-color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user_mian .user_classify navigator {
+  flex: 1;
+  text-align: center;
+}
+.user_mian .user_classify navigator .iconfont {
+  font-size: 50rpx;
+}
+.user_mian .user_classify navigator .user_payment_text {
+  font-size: 24rpx;
+}
+.user_mian .user_classify .navigator-hover {
+  color: var(--themeColor);
+}
+.user_opinion_warp {
+  margin-top: 20rpx;
+}
+.user_opinion_warp .user_opinion_mian {
+  margin: 0rpx 24rpx;
+  height: 520rpx;
+  background-color: #FFF;
+}
+.user_opinion_warp .user_opinion_mian navigator {
+  display: flex;
+  justify-content: space-between;
+  padding: 22rpx;
+  border-bottom: 1px solid #C8C8C8;
+  font-size: 26rpx;
+  color: #434343;
+}

@@ -1,3 +1,4 @@
+<!-- 头像背景 -->
 <view class="user_wrap">
     <view wx:if="{{userinfo.avatarUrl}}" class="user_info_img">
         <image class="user_bg" src="{{userinfo.avatarUrl}}"/>
@@ -8,5 +9,44 @@
     </view>
     <view wx:else class="user_btn">
         <navigator url="/pages/login/index" >登录</navigator>
+    </view>
+</view>
+
+<!-- 历史内容 -->
+<view class="user_mian">
+    <view class="user_classify">
+        <navigator hover-class="navigator-hover">
+            <view class="iconfont icon-fukuantongzhi"></view>
+            <text class="user_payment_text">待付款</text>
+        </navigator>
+        <navigator hover-class="navigator-hover">
+            <view class="iconfont icon-receipt-address"></view>
+            <text class="user_payment_text">待收货</text>
+        </navigator >
+        <navigator hover-class="navigator-hover">
+            <view class="iconfont icon-tuihuotuikuan_dianpu"></view>
+            <text class="user_payment_text">退货/退款</text>
+        </navigator>
+        <navigator hover-class="navigator-hover" url="/pages/order/index">
+            <view class="iconfont icon-ding_dan"></view>
+            <text class="user_payment_text">全部订单</text>
+        </navigator>
+    </view>
+</view>
+
+<!-- 意见反馈 -->
+<view class="user_opinion_warp">
+    <view class="user_opinion_mian">
+        <navigator >
+            <view class="user_opinion_text">联系客服</view>
+            <view class="user_opinion_figure">400-618-4000</view>
+        </navigator>
+        <navigator >
+            <view class="user_opinion_text">意见反馈</view>
+        </navigator>
+        <navigator >
+            <view class="user_opinion_text">当前版本</view>
+            <view class="user_opinion_figure">v4.1.1</view>
+        </navigator>
     </view>
 </view>
