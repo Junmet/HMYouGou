@@ -85,7 +85,7 @@ Page({
     // 取反
     allchk = !allchk
     // 遍历cart数组 修改 checked
-    cart.forEach(v => {v.checked = !v.checked})
+    cart.forEach(v => {v.checked = allchk})
     this.setCart(cart)
   },
 

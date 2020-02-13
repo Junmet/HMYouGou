@@ -78,6 +78,7 @@ Page({
       })
       // 订单编号
       const order_number = res.data.message.order_number
+      
       // 预支付
       const payParameter = await request({
         url: "/my/orders/req_unifiedorder",
@@ -86,8 +87,10 @@ Page({
         method: "POST"
       })
       const {pay} = payParameter.data.message
+
       // 发起微信支付    
       await requestPayment(pay)
+
       // 查看订单支付状态
       const paymentState = await request({
         url: "/my/orders/chkOrder",
@@ -95,6 +98,7 @@ Page({
         data: {order_number},
         method: "POST"
       })
+
       //手动删除缓存中 已经支付的数据
       let newCart = wx.getStorageSync("cart");
       newCart = newCart.filter(v=>!v.checked)
@@ -102,6 +106,7 @@ Page({
       
       // 支付成功提示
       await showToast({title:"支付成功"})
+
       // 支付成功后跳转订单页
       wx.navigateTo({url: '/pages/order/index'});
     } catch (error) {
