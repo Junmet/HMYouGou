@@ -96,6 +96,21 @@
 					"id": -1,
 					"name": "授权页面",
 					"pathName": "pages/auth/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "登录",
+					"pathName": "pages/login/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "用户",
+					"pathName": "pages/user/index",
+					"query": "",
 					"scene": null
 				}
 			]
