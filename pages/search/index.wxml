@@ -5,7 +5,8 @@
 </view>
 <!-- 商品详情 -->
 <view class="first_tab">
-    <navigator class="goods_item" wx:for="{{goods}}" wx:key="goods_id"> 
+    <navigator class="goods_item" wx:for="{{goods}}" wx:key="goods_id"
+    url="../../pages/goods_detail/index?goods_id={{item.goods_id}}"> 
         <!-- 左侧图片容器 -->
         <view class="goods_img_warp">
             <image src="{{item.goods_big_logo?item.goods_big_logo:'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" mode="widthFix" />
