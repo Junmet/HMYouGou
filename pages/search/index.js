@@ -1,66 +1,22 @@
-// pages/search/index.js
+import {request} from "../../request/request.js"
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    // 搜索列表数据
+    goods:[]
+  },
+  // 输入框输入的值
+  values:"",
+  // 输入框的值改变 就会触发这个事件
+  searchCommodity(e){
+    const {value} = e.detail
+    this.values = value
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 点击搜索按钮时 触发
+  async searchBtn(){
+    let query = this.values
+    const res = await request({url:"/goods/search",method:"GET",data:{query}})
+    const goods = res.data.message.goods
+    this.setData({goods})
   }
 })
