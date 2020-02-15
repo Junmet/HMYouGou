@@ -12,7 +12,7 @@
 <view class="commodity_text">
     <view class="commodity_left">{{commodityDetails.goods_name}}</view>
     <view class="commodity_right_row">
-        <text class="iconfont icon-shoucang"></text>
+        <text class="iconfont {{isCollect?'icon-shoucang1':'icon-shoucang'}}" bindtap="commodityCollect"></text>
         <view class="collect_text">收藏</view>
     </view>
 </view>

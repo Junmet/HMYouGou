@@ -40,6 +40,9 @@ page {
 .commodity_text .commodity_right_row .iconfont {
   color: #434343;
 }
+.commodity_text .commodity_right_row .icon-shoucang1 {
+  color: var(--themeColor);
+}
 .commodity_text .commodity_right_row .collect_text {
   color: #434343;
   font-size: 28rpx;
