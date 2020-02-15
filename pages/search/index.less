@@ -1,0 +1,61 @@
+.search_wrap {
+    height: 91rpx;
+    display: flex;
+    padding: 20rpx;
+    margin-bottom: 10rpx;
+    // background-color: burlywood;
+    input {
+        flex: 1;
+        height: 61rpx;
+        background-color: #E7E7E7;
+        border-radius: 30rpx;
+        padding-left: 20rpx;
+        color: #6c6c6c;
+        font-size: 25rpx;
+        line-height: 61rpx;
+    }
+
+    button {
+        width: 110rpx;
+        height: 61rpx;
+        font-weight: 400;
+        font-size: 25rpx;
+        color: #FFF;
+        background-color: var(--themeColor);
+        padding: 0;
+        line-height: 61rpx;
+        margin-left: 15rpx;
+    }
+
+    button:not([size='mini']) {
+        min-height: 0;
+    }
+}
+
+
+.first_tab {
+    padding: 8rpx;
+    .goods_item {
+        display: flex;
+        .goods_img_warp {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            image {
+                width:65%;
+            }
+        }
+
+        .goods_text_warp {
+            flex: 3;
+            .goods_name {
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                font-size: 26rpx;
+            }
+        }
+    }
+}
