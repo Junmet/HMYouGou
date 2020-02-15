@@ -1,11 +1,5 @@
-import {
-  request
-} from "../../request/request.js"
+import {request} from "../../request/request.js"
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     tabs: [{
         id: 0,
@@ -59,7 +53,9 @@ Page({
     // 发送求
     const res = await request({url: "/my/orders/all",header: header,data: {type}})
     const {orders} = res.data.message
-    this.setData({orders})
+    this.setData({
+      orders:orders.map(v => ({...v,create_time_cn:(new Date(v.create_time*1000).toLocaleString())}))
+    })
   },
 
   onMyevent(e) {
