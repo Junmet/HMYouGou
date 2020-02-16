@@ -41,7 +41,7 @@
             <view class="user_opinion_text">联系客服</view>
             <view class="user_opinion_figure">400-618-4000</view>
         </navigator>
-        <navigator >
+        <navigator url="/pages/feedback/index">
             <view class="user_opinion_text">意见反馈</view>
         </navigator>
         <navigator >
