@@ -13,7 +13,7 @@
         <view class="fb_tool">
             <button bindtap="addImg">+</button>
             <block  wx:for="{{chooseImg}}" wx:key="*this">
-                <UpImg src="{{item}}"></UpImg>
+                <UpImg src="{{item}}" data-index="{{index}}" bindtap="removeImg"></UpImg>
             </block>
             
         </view>

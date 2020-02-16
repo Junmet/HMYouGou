@@ -15,5 +15,11 @@ Page({
                     })
             }
         });
+    },
+    removeImg(e){
+        const index = e.target.dataset.index
+        const {chooseImg} = this.data
+        chooseImg.splice(index,1)
+        this.setData({chooseImg})
     }
 })
