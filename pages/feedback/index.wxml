@@ -11,8 +11,11 @@
     <view class="fb_content">
         <textarea placeholder="请描述一下您的问题"></textarea>
         <view class="fb_tool">
-            <button>+</button>
-            <UpImg></UpImg>
+            <button bindtap="addImg">+</button>
+            <block  wx:for="{{chooseImg}}" wx:key="*this">
+                <UpImg src="{{item}}"></UpImg>
+            </block>
+            
         </view>
     </view>
     <view class="form_btn_wrap">

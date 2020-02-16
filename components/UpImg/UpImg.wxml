@@ -1,4 +1,4 @@
 <view class="up_img">
-    <image src="https://ae01.alicdn.com/kf/Haa7ba9eb17244533b7ea83e93bda066ao.jpg"></image>
+    <image src="{{src}}"></image>
     <icon type="clear" size="23" color="red"></icon>
 </view>
