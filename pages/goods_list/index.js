@@ -38,7 +38,8 @@ Page({
    */
   onLoad: function (options) {
     // console.log(options);
-    this.QueryParams.cid = options.cid
+    this.QueryParams.cid = options.cid || "";
+    this.QueryParams.query = options.query || "";
     this.getGoodsList()
   },
   // 发送请求获取商品列表数据

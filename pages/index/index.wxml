@@ -1,6 +1,5 @@
 <!-- 搜索组件 -->
-<SearchInput/>
-
+<SearchInput />
 <!-- 轮播图 -->
 <view class="carousel">
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -12,18 +11,16 @@
       </swiper-item>
     </block>
   </swiper>
-
   <!-- 导航 -->
   <view class="navigation-list">
     <block wx:for="{{navigationimg}}" wx:for-item="v" wx:key="name">
       <view class="navigation-item">
-        <navigator url="{{v.navigator_url}}" open-type="{{v.open_type}}">
+        <navigator url="/pages/category/index" open-type="switchTab">
           <image src="{{v.image_src}}"></image>
         </navigator>
       </view>
     </block>
   </view>
-
   <!-- 商品详情 -->
   <view class="commodity">
     <!-- 商品的每一个分类循环 -->
@@ -35,12 +32,16 @@
       <!-- 商品图片 -->
       <view class="commodity-contents">
         <view class="commodity-content-one">
-          <image src="{{item.product_list[0].image_src}}"></image>
+          <navigator url="{{item.product_list[0].navigator_url}}">
+            <image src="{{item.product_list[0].image_src}}"></image>
+          </navigator>
         </view>
         <view class="commodity-content-twos">
           <block wx:for="{{item.product_list}}" wx:for-item="v" wx:for-index="i" wx:key="name">
             <view class="commodity-content-two" wx:if="{{i !== 0}}">
-              <image src="{{v.image_src}}"></image>
+              <navigator url="{{v.navigator_url}}">
+                <image src="{{v.image_src}}"></image>
+              </navigator>
             </view>
           </block>
         </view>
