@@ -12,6 +12,7 @@
         <textarea placeholder="请描述一下您的问题"></textarea>
         <view class="fb_tool">
             <button>+</button>
+            <UpImg></UpImg>
         </view>
     </view>
     <view class="form_btn_wrap">

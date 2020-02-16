@@ -39,8 +39,8 @@
 }
 .fb_mian .fb_content .fb_tool button {
   background-color: #f8f8f8;
-  width: 90rpx;
-  height: 90rpx;
+  width: 100rpx;
+  height: 100rpx;
   font-size: 40rpx;
   padding: 0;
   display: flex;
