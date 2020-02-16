@@ -9,17 +9,16 @@
         </view>
     </view>
     <view class="fb_content">
-        <textarea placeholder="请描述一下您的问题"></textarea>
+        <textarea placeholder="请描述一下您的问题" value="{{textVal}}" bindinput="textVal"></textarea>
         <view class="fb_tool">
             <button bindtap="addImg">+</button>
             <block  wx:for="{{chooseImg}}" wx:key="*this">
                 <UpImg src="{{item}}" data-index="{{index}}" bindtap="removeImg"></UpImg>
             </block>
-            
         </view>
     </view>
     <view class="form_btn_wrap">
-        <button class="submit_btn">
+        <button bindtap="submitBtn" class="submit_btn">
             提交
         </button>
     </view>
